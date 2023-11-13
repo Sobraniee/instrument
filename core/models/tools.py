@@ -13,7 +13,6 @@ class Tools(models.Model):
     brand = models.ForeignKey('Brand', on_delete=models.CASCADE)
     photos = models.ManyToManyField('Photo')
 
-
-class Meta:
-    verbose_name = "Инструмент"
-    verbose_name_plural = "Инструменты"
+    class Meta:
+        verbose_name = "Инструмент"
+        verbose_name_plural = "Инструменты"
