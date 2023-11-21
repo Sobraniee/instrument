@@ -1,9 +1,13 @@
-from django.shortcuts import render
-from django.views import View
+from rest_framework import generics
 from core.models import Tools
+from core.serializers import ToolsSerializer
 
 
-class ToolsView(View):
-    def get(self, request, *args, **kwargs):
-        tools = Tools.objects.all()
-        return render(request, {'tools': tools})
+class ToolsdListCreateView(generics.ListCreateAPIView):
+    queryset = Tools.objects.all()
+    serializer_class = ToolsSerializer
+
+
+class ToolsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Tools.objects.all()
+    serializer_class = ToolsSerializer
