@@ -12,6 +12,7 @@ class Tools(models.Model):
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
     brand = models.ForeignKey('Brand', on_delete=models.CASCADE)
     photos = models.ManyToManyField('Photo')
+    favorites = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Инструмент"
