@@ -1,9 +1,13 @@
-from django.shortcuts import render
-from django.views import View
+from rest_framework import generics
 from core.models import Category
+from core.serializers.category import CategorySerializers
 
 
-class CategoryView(View):
-    def get(self, request, *args, **kwargs):
-        category = Category.objects.all()
-        return render(request, {'category': category})
+class CategoryListCreateView(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializers
+
+
+class CategoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializers
