@@ -3,7 +3,7 @@ from core.models import Tools
 from core.serializers import ToolsSerializer
 
 
-class ToolsdListCreateView(generics.ListCreateAPIView):
+class ToolsListCreateView(generics.ListCreateAPIView):
     queryset = Tools.objects.all()
     serializer_class = ToolsSerializer
     
