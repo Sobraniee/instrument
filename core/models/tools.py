@@ -1,7 +1,6 @@
 from django.db import models
 from .brand import Brand
 from .category import Category
-from .subcategory import Subcategory
 
 
 class Tools(models.Model):
