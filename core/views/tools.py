@@ -8,7 +8,7 @@ class ToolsListCreateView(generics.ListCreateAPIView):
     queryset = Tools.objects.all()
     serializer_class = ToolsSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['category', 'brand']
+    filterset_fields = ['category', 'brand',]
 
 
 class ToolsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):

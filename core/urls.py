@@ -10,4 +10,7 @@ urlpatterns = [
 
     path('tools/', ToolsListCreateView.as_view(), name='tools-list-create'),
     path('tools/<int:pk>/', ToolsRetrieveUpdateDestroyView.as_view(), name='tools-retrieve-update-destroy'),
+
+    path('subcategories/', SubcategoryListCreateView.as_view(), name='subcategories-list-create'),
+    path('subcategories/', SubcategoryRetrieveUpdateDestroyView.as_view(), name='subcategories-retrieve-update-destroy'),
 ]
