@@ -10,8 +10,8 @@ class ToolsAdmin(admin.ModelAdmin):
     list_display = [
         'name',
         'description',
-        'type',
         'price',
+        'subcategory',
         'category',
         'brand',
     ]
