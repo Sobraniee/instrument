@@ -11,4 +11,7 @@ class Subcategory(models.Model):
         verbose_name_plural = 'Подкатегории'
 
     def __str__(self):
-        return self.name
+        if isinstance(self.name, dict):
+            return ', '.join(str(value) for value in self.name.values())
+        else:
+            return str(self.name)
