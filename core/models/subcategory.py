@@ -1,8 +1,10 @@
 from django.db import models
+from .category import Category
 
 
 class Subcategory(models.Model):
-    name = models.CharField(max_length=100)
+    category_id = models.ForeignKey('Category', on_delete=models.CASCADE)
+    name = models.JSONField(blank=True, null=True)
 
     class Meta:
         verbose_name = 'Подкатегория'
