@@ -3,6 +3,7 @@ from core.models import *
 
 admin.site.register(Category)
 admin.site.register(Brand)
+admin.site.register(Cart)
 
 
 @admin.register(Tools)
@@ -25,3 +26,15 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 
     ]
+
+@admin.register(Cart)
+class SubcategoryAdmin(admin.ModelAdmin):
+    list_display = [
+        'tool',
+        'quantity', 
+        'buyer_name', 
+        'buyer_phone', 
+        'created_at',
+
+
+    ]    

@@ -14,4 +14,7 @@ urlpatterns = [
     path('subcategories/', SubcategoryListCreateView.as_view(), name='subcategories-list-create'),
     path('subcategories/<int:pk>/', SubcategoryRetrieveUpdateDestroyView.as_view(), name='subcategories-retrieve-update-destroy'),
 
+    path('cart/', CartListCreateView.as_view(), name='cart-list-create'),
+    path('cart/<int:pk>/', CartRetrieveUpdateDestroyView.as_view(), name='cart-retrieve-update-destroy'),
+
 ]
