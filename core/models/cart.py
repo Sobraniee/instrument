@@ -7,6 +7,8 @@ class Cart(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     buyer_name = models.CharField(max_length=250)
     buyer_phone = models.CharField(max_length=250)
+    delivery = models.BooleanField(default=False)
+    delivery_adress = models.CharField(max_length=250)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
