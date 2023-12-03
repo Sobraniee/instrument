@@ -1,6 +1,7 @@
 from django.db import models
 from .brand import Brand
 from .category import Category
+from .photo import Photo
 
 
 class Tools(models.Model):
@@ -10,9 +11,12 @@ class Tools(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     subcategory = models.ForeignKey('Subcategory', on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    photos = models.ImageField(upload_to='photos')
+    photos = models.ManyToManyField(Photo)
     favorites = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Инструмент"
         verbose_name_plural = "Инструменты"
+
+    def __str__(self):
+        return self.name
