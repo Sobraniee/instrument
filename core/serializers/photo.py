@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from core.models import Photo
-from core.models import Tools
-
+from ..models import Tools, Photo
+from core.models import Tools, Photo
+# from core.models import Photo
+# from core.models import Tools
 
 class PhotoSerializer(serializers.ModelSerializer):
     tool = serializers.PrimaryKeyRelatedField(queryset=Tools.objects.all())
