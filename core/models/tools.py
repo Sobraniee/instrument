@@ -1,7 +1,8 @@
 from django.db import models
 from .brand import Brand
 from .category import Category
-from .photo import Photo
+from cloudinary.models import CloudinaryField
+
 
 
 class Tools(models.Model):
@@ -11,7 +12,7 @@ class Tools(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     subcategory = models.ForeignKey('Subcategory', on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    photos = models.ManyToManyField(Photo)
+    photo = CloudinaryField('photo', null=True, blank=True)
     favorites = models.BooleanField(default=False)
 
     class Meta:
