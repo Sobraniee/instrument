@@ -3,3 +3,4 @@ from .brand import *
 from .category import *
 from .subcategory import *
 from .cart import *
+from .photo import *

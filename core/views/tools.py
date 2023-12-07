@@ -1,11 +1,11 @@
 from rest_framework import generics
-from core.models import Tools
-from core.serializers import ToolsSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.pagination import PageNumberPagination
 from cloudinary.uploader import upload
 from rest_framework import status
 from rest_framework.response import Response
+
+
 
 
 class ToolsListCreateView(generics.ListCreateAPIView):
@@ -35,4 +35,3 @@ class ToolsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ToolsSerializer
     pagination_class = PageNumberPagination
 
-   

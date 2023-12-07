@@ -17,4 +17,6 @@ urlpatterns = [
     path('cart/', CartListCreateView.as_view(), name='cart-list-create'),
     path('cart/<int:pk>/', CartRetrieveUpdateDestroyView.as_view(), name='cart-retrieve-update-destroy'),
 
+    path('api/photos/', PhotoListCreateView.as_view(), name='photos-list'),
+    path('api/photos/<int:pk>/', PhotoRetrieveUpdateDestroyView.as_view(), name='photos-retrieve-update-destroy'),
 ]
