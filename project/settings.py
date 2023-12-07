@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -90,6 +93,35 @@ DATABASES = {
     }
 }
 
+cloudinary.config(
+    cloud_name="dooslixk3",
+    api_key="999412656547414",
+    api_secret="dmY68fmOZ_quD-oLbv02urO-tfc",
+)
+
+# Настройки для хранения загруженных файлов в Cloudinary
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dooslixk3',
+    'API_KEY': '999412656547414',
+    'API_SECRET': 'dmY68fmOZ_quD-oLbv02urO-tfc',
+}
+
+# Используйте Cloudinary для хранения медиафайлов
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Настройка для области, в которой хранятся ваши медиафайлы (по умолчанию - "public")
+# CLOUDINARY_STORAGE['PREFIX'] = 'your_prefix'  # Необязательно
+
+# Для использования URL, начинающихся с "https", добавьте следующую настройку
+CLOUDINARY_STORAGE['SECURE_URLS'] = True
+
+# Настройки для обработки изображений в Cloudinary (по умолчанию - "medium-quality")
+CLOUDINARY_STORAGE['QUALITY'] = 'auto'
+
+# Можете добавить другие настройки в соответствии с вашими потребностями
+
+# Настройка для использования HTTPS-URL для изображений
+CLOUDINARY_SERVE_SECURE_URLS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
