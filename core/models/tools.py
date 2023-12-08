@@ -4,7 +4,6 @@ from .category import Category
 from cloudinary.models import CloudinaryField
 
 
-
 class Tools(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
