@@ -17,17 +17,27 @@ class ToolsListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         photos = self.request.data.getlist('photos')
-        photo_urls = []
+        photos_dict = {}
 
-        for photo in photos:
+        for i, photo in enumerate(photos):
             try:
                 response = upload(photo)
-                photo_urls.append(response['secure_url'])
+                photos_dict[f"photo_{i+1}"] = response['secure_url']
             except Exception as e:
                 error_message = f"Ошибка при загрузке изображения: {str(e)}"
                 return Response({"error": error_message}, status=status.HTTP_400_BAD_REQUEST)
 
-        serializer.save(photos=photo_urls)
+        serializer.save(photos=photos_dict)
+
+    def get_object(self, pk):
+        obj = super().get_object(pk)
+        photos_dict = {f"photo_{i+1}": photo_url for i, photo_url in enumerate(obj.photos)}
+        obj.photos = photos_dict
+        return obj
+
+
+
+
 
 
 class ToolsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
