@@ -27,14 +27,24 @@ class SubcategoryAdmin(admin.ModelAdmin):
     ]
 
 
-@admin.register(Cart)
-class CartAdmin(admin.ModelAdmin):
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
     list_display = [
-        'tool',
-        'quantity', 
+        'number_order',
         'buyer_name', 
         'buyer_phone', 
-        'created_at',
-
+        'delivery',
+        'delivery_address',
+        
 
     ]
+
+@admin.register(OrderProduct)
+class OrderProductAdmin(admin.ModelAdmin):
+    list_display = [
+        'order', 
+        'tool',
+        'quantity', 
+        
+
+    ]    
