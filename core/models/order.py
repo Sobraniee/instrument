@@ -1,4 +1,5 @@
 from django.db import models
+from .tools import Tools
 
 
 class Order(models.Model):
@@ -19,9 +20,10 @@ class Order(models.Model):
             self.number_order = f"{self.number_order:06d}"
         super().save(*args, **kwargs)
 
+
 class OrderProduct(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='products')
-    tool = models.ForeignKey('Tools', on_delete=models.CASCADE)
+    tool = models.ForeignKey(Tools, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
 
     class Meta:

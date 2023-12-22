@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from core.models import *
+from core.models import OrderProduct, Order
 
 
 class OrderProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderProduct
-        fields = ['id', 'quantity']
+        fields = ['tool', 'quantity']
 
 
 class OrderSerializer(serializers.ModelSerializer):

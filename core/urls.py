@@ -14,7 +14,10 @@ urlpatterns = [
     path('subcategories/', SubcategoryListCreateView.as_view(), name='subcategories-list-create'),
     path('subcategories/<int:pk>/', SubcategoryRetrieveUpdateDestroyView.as_view(), name='subcategories-retrieve-update-destroy'),
 
+    path('orders/', OrderListCreateView.as_view(), name='order-list-create'),
     path('orders/<int:pk>/', OrderRetrieveUpdateDestroyView.as_view(), name='order-detail'),
+
+    path('order-products/', OrderProductListCreateView.as_view(), name='order-products-list-create'),
     path('order-products/<int:pk>/', OrderProductRetrieveUpdateDestroyView.as_view(), name='order-product-detail'),
 
     path('api/photos/', PhotoListCreateView.as_view(), name='photos-list'),

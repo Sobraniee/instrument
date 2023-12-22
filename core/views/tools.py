@@ -36,10 +36,6 @@ class ToolsListCreateView(generics.ListCreateAPIView):
         return obj
 
 
-
-
-
-
 class ToolsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tools.objects.all()
     serializer_class = ToolsSerializer
