@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
         if not email:
@@ -17,6 +18,7 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(email, username, password, **extra_fields)
 
+
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=30, unique=True)
@@ -28,6 +30,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
 
 class EmailConfirmation(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)

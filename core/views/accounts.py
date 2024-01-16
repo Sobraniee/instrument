@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from core.models import CustomUser, EmailConfirmation
 from core.serializers import CustomUserSerializer
 
+
 @api_view(['POST'])
 def register(request):
     serializer = CustomUserSerializer(data=request.data)
@@ -21,6 +22,7 @@ def register(request):
         return Response({'message': 'Регистрация прошла успешно. Проверьте Ваш email для активации.'}, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 def send_activation_email(email, token):
     subject = 'Активируйте Ваш аккаунт'
     message = f'Для активации аккаунта, кликните на ссылку: http://yourdomain.com/activate/{token}/'
@@ -29,9 +31,11 @@ def send_activation_email(email, token):
 
     send_mail(subject, message, from_email, recipient_list)
 
+
 @api_view(['GET'])
 def account_activation_sent(request):
     return Response({'message': 'На Ваш email address выслано письмо. Пройдите по ссылке для активации аккаунта.'})
+
 
 @api_view(['GET'])
 def activate(request, token):
@@ -44,6 +48,7 @@ def activate(request, token):
     user.is_active = True
     user.save()
     return Response({'message': 'Аккаунт успешно активирован. Теперь можете зайти на сайт под Вашим аккаунтом.'})
+
 
 @api_view(['GET'])
 def employee_dashboard(request):
