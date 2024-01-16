@@ -17,3 +17,6 @@ class Tools(models.Model):
     class Meta:
         verbose_name = "Инструмент"
         verbose_name_plural = "Инструменты"
+
+    def __str__(self):
+        return self.name

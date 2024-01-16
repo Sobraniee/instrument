@@ -22,4 +22,12 @@ urlpatterns = [
     path('activate/<str:token>/', activate, name='activate'),
     path('employee-dashboard/', employee_dashboard, name='employee_dashboard'),
 
+    path('orders/', OrderListCreateView.as_view(), name='order-list-create'),
+    path('orders/<int:pk>/', OrderRetrieveUpdateDestroyView.as_view(), name='order-detail'),
+
+    path('order-products/', OrderProductListCreateView.as_view(), name='order-products-list-create'),
+    path('order-products/<int:pk>/', OrderProductRetrieveUpdateDestroyView.as_view(), name='order-product-detail'),
+
+    path('api/photos/', PhotoListCreateView.as_view(), name='photos-list'),
+    path('api/photos/<int:pk>/', PhotoRetrieveUpdateDestroyView.as_view(), name='photos-retrieve-update-destroy'),
 ]
