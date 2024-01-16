@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
 
 
 class CustomUserManager(BaseUserManager):
@@ -25,6 +25,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_employee = models.BooleanField(default=False)
+
+    groups = models.ManyToManyField(Group, related_name='customuser_set')
+    user_permissions = models.ManyToManyField(Permission, related_name='customuser_set')
 
     objects = CustomUserManager()
 
