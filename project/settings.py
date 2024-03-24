@@ -103,10 +103,10 @@ DATABASES = {
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'ЗДЕСЬ email_host'  # Замените на реальный хост
+EMAIL_HOST = 'smtp.gmail.com'  # Замените на реальный хост
 EMAIL_PORT = 587  # ЗДЕСЬ порт для вашего хоста, если ГУГЛ то остается как есть
 EMAIL_USE_TLS = True  #True, если используется TLS ГУГЛ
-EMAIL_HOST_USER = 'email@example.com'  #ЗДЕСЬ электронный адрес
+EMAIL_HOST_USER = 'abitov.davlyat5700@gmail.com'  #ЗДЕСЬ электронный адрес
 EMAIL_HOST_PASSWORD = 'email_password'  #ЗДЕСЬ пароль от почты
 
 
